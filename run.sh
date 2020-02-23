@@ -1,0 +1,1 @@
+MSYS_NO_PATHCONV=1 docker run --rm -v $(pwd):/app -w /app release-cli:latest --remote origin/master --tag initial --projects .

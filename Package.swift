@@ -24,6 +24,6 @@ let package = Package(
             dependencies: ["ShellOut"]),
         .testTarget(
             name: "ReleaseCliTests",
-            dependencies: ["ReleaseCli","ShellOut"]),
+            dependencies: ["ShellOut"]),
     ]
 )
