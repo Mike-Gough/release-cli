@@ -1,7 +1,7 @@
 import XCTest
 
-import release_cliTests
+import ReleaseCliTests
 
 var tests = [XCTestCaseEntry]()
-tests += release_cliTests.allTests()
+tests += ReleaseCliTests.allTests()
 XCTMain(tests)

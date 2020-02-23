@@ -1,6 +1,10 @@
 import ShellOut
 import Foundation
 
+enum CliErrors: Error {
+    case argumentNotFound
+}
+
 guard let remoteBranch: String = CommandLine.option(for: "--remote")?.valueArgument else {
     throw CliErrors.argumentNotFound
 }
