@@ -6,6 +6,10 @@ class ProjectStories {
     let isDeployedToUAT: Bool
     let isDeployedToProd: Bool
     let stories: [String]
+    let devCommitId: String
+    let testCommitId: String
+    let uatCommitId: String
+    let prodCommitId: String
 
     init(
       project: String,
