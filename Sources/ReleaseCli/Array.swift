@@ -25,14 +25,14 @@ extension Array where Element:ProjectStories {
       })
 
       let thisRow = """
-      |\($1.project)|\($1.lastCommitId)|\($1.isDeployedToDev)|\($1.isDeployedToTest)|\($1.isDeployedToUAT)|\($1.isDeployedToProd)|\(stories)|
+      |\($1.project)|\($1.lastCommitId)|\($1.devCommitId)|\($1.isDeployedToDev)|\($1.testCommitId)|\($1.isDeployedToTest)|\($1.uatCommitId)|\($1.isDeployedToUAT)|\($1.prodCommitId)|\($1.isDeployedToProd)|\(stories)|
       """
       return $0 == "" ? thisRow : $0 + "\n" + thisRow
     })
 
     return """
-    |application|version|In dev|In test|In uat|In prod|stories|
-    |-----------|-------|------|-------|------|-------|-------|
+    |application|version|dev id|In dev|test id|In test|uat id|In uat|prod id|In prod|stories|
+    |-----------|-------|------|------|-------|-------|------|------|-------|-------|-------|
     \(rows)
     """
   }

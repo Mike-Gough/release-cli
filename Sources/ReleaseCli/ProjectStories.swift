@@ -14,7 +14,11 @@ class ProjectStories {
       isDeployedToDev: Bool,
       isDeployedToTest: Bool,
       isDeployedToUAT: Bool,
-      isDeployedToProd: Bool) {
+      isDeployedToProd: Bool,
+      devCommitId: String,
+      testCommitId: String,
+      uatCommitId: String,
+      prodCommitId: String) {
 
       self.project = project
       self.lastCommitId = lastCommitId
@@ -23,5 +27,9 @@ class ProjectStories {
       self.isDeployedToTest = isDeployedToTest
       self.isDeployedToUAT = isDeployedToUAT
       self.isDeployedToProd = isDeployedToProd
+      self.devCommitId = devCommitId
+      self.testCommitId = testCommitId
+      self.uatCommitId = uatCommitId
+      self.prodCommitId = prodCommitId
     }
 }

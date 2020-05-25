@@ -34,6 +34,10 @@ func getStoriesSinceTag(for projects: [String], with tag: String, on remoteBranc
         let isDeployedToTestOnRemote: Bool = try exec(.gitFindTagOnRemote(tag: "test", remote: remoteBranch), gitFolder).contains(lastCommitIdOnRemote)
         let isDeployedToUATOnRemote: Bool = try exec(.gitFindTagOnRemote(tag: "uat", remote: remoteBranch), gitFolder).contains(lastCommitIdOnRemote)
         let isDeployedToProdOnRemote: Bool = try exec(.gitFindTagOnRemote(tag: "prod", remote: remoteBranch), gitFolder).contains(lastCommitIdOnRemote)
+        let devCommitOnRemote: String = try exec(.gitFindTagOnRemote(tag: "dev", remote: remoteBranch), gitFolder)
+        let testCommitOnRemote: String = try exec(.gitFindTagOnRemote(tag: "test", remote: remoteBranch), gitFolder)
+        let uatCommitOnRemote: String = try exec(.gitFindTagOnRemote(tag: "uat", remote: remoteBranch), gitFolder)
+        let prodCommitOnRemote: String = try exec(.gitFindTagOnRemote(tag: "prod", remote: remoteBranch), gitFolder)
 
         /*
          * The following will return a single line for each of the commits on the 
@@ -50,7 +54,11 @@ func getStoriesSinceTag(for projects: [String], with tag: String, on remoteBranc
             isDeployedToDev: isDeployedToDevOnRemote,
             isDeployedToTest: isDeployedToTestOnRemote,
             isDeployedToUAT: isDeployedToUATOnRemote,
-            isDeployedToProd: isDeployedToProdOnRemote
+            isDeployedToProd: isDeployedToProdOnRemote,
+            devCommitId: devCommitOnRemote,
+            testCommitId: testCommitOnRemote,
+            uatCommitId: uatCommitOnRemote,
+            prodCommitId: prodCommitOnRemote
         )
     }
 }
