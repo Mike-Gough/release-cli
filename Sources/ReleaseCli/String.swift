@@ -10,7 +10,7 @@ extension String
 
             return regex.matches(in: self, options: [], range: NSRange(location: 0, length: string.length)).map {
                 string.substring(with: $0.range)
-            }
+            }.unique()
         }
 
         return []
