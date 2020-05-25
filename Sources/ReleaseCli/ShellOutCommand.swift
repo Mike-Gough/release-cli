@@ -14,13 +14,13 @@ import ShellOut
 public extension ShellOutCommand {
 
     static func gitFetch() -> ShellOutCommand {
-        let command = "git fetch";
+        let command = "git -c http.sslverify false fetch";
 
         return ShellOutCommand(string: command)
     }
 
     static func gitLastCommitId(remote: String? = nil) -> ShellOutCommand {
-        var command = "git rev-parse";
+        var command = "git -c http.sslverify false rev-parse";
 
         if remote != nil {
           command.append(" \(remote!)")
@@ -30,7 +30,7 @@ public extension ShellOutCommand {
     }
 
     static func gitLog(tag: String? = nil, remote: String? = nil, reverse: Bool = true) -> ShellOutCommand {
-        var command = "git log --oneline";
+        var command = "git -c http.sslverify false log --oneline";
         
         if remote != nil {
           command.append(" \(remote!)")
@@ -48,7 +48,7 @@ public extension ShellOutCommand {
     }
 
     static func gitFindTagOnRemote(tag: String? = nil, remote: String? = nil)  -> ShellOutCommand {
-        var command = "git ls-remote --tags";
+        var command = "git -c http.sslverify false ls-remote --tags";
 
         if remote != nil {
           command.append(" \(remote!.replacingOccurrences(of: "/", with: " "))")
